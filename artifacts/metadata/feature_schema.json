@@ -1,0 +1,31 @@
+{
+  "version": "1.0.0",
+  "paper": "SAGE: SLO-Aware Adaptive Retrieval for Production RAG Systems",
+  "feature_names": [
+    "query_length_chars",
+    "query_length_tokens",
+    "query_has_question_mark",
+    "query_avg_word_len",
+    "top1_score",
+    "score_drop",
+    "score_mean",
+    "score_std",
+    "sparse_dense_agreement",
+    "target_slo_ms"
+  ],
+  "feature_descriptions": {
+    "query_length_chars": "Character count of the raw input query",
+    "query_length_tokens": "Token/word count of the query",
+    "query_has_question_mark": "Binary indicator (1.0 if contains '?', else 0.0)",
+    "query_avg_word_len": "Average character length per word in query",
+    "top1_score": "Highest RRF / probe score from initial retrieval",
+    "score_drop": "Score difference between top-1 and top-2 probe candidates (s1 - s2)",
+    "score_mean": "Arithmetic mean of top probe candidate retrieval scores",
+    "score_std": "Standard deviation of top probe candidate retrieval scores",
+    "sparse_dense_agreement": "Jaccard overlap coefficient between top BM25 and top Dense candidates",
+    "target_slo_ms": "Target latency Service Level Objective deadline in milliseconds"
+  },
+  "feature_count": 10,
+  "required_data_type": "float64"
+}
+

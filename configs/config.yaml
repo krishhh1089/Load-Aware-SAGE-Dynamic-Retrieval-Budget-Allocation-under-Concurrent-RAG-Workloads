@@ -1,0 +1,57 @@
+# SAGE: SLO-Aware Adaptive Retrieval for Production RAG Systems
+# Runtime Configuration
+
+artifacts:
+  base_dir: "artifacts"
+  dataset_dir: "artifacts/dataset"
+  bm25_dir: "artifacts/indexes/bm25"
+  faiss_dir: "artifacts/indexes/faiss"
+  model_dir: "artifacts/models/random_forest"
+  metadata_dir: "artifacts/metadata"
+  feature_schema_path: "artifacts/metadata/feature_schema.json"
+  model_metadata_path: "artifacts/metadata/model_metadata.json"
+
+retrieval:
+  bm25:
+    k1: 1.5
+    b: 0.75
+    top_candidates: 50
+  dense:
+    model_name: "BAAI/bge-m3"
+    embedding_dim: 1024
+    metric: "inner_product"
+    top_candidates: 50
+    device: "cpu"
+  rrf:
+    k: 60
+    bm25_weight: 1.0
+    dense_weight: 1.0
+  probe_depth: 2 # Lightweight probe retrieval for feature extraction
+
+policy:
+  candidate_budgets: [2, 3, 5, 7, 10, 15, 20, 25, 30]
+  default_budget: 10
+  fallback_budget: 5
+  temperature: 1.0
+  tie_breaking: "conservative" # break ties in favor of smaller budgets
+  validate_schema: true
+
+generation:
+  provider: "mock" # options: "mock", "openai"
+  model: "gpt-4o-mini"
+  temperature: 0.2
+  max_context_tokens: 2048
+  max_tokens: 150
+  timeout_seconds: 10.0
+  mock:
+    base_latency_ms: 35.0
+    latency_per_token_ms: 0.2
+
+slo:
+  target_slo_ms: 5000.0 # Paper target: 5.0 seconds for end-to-end P95
+  compliance_target_pct: 95.0
+
+logging:
+  level: "INFO"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+

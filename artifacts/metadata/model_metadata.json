@@ -1,0 +1,20 @@
+{
+  "model_type": "RandomForestClassifier",
+  "paper": "SAGE: SLO-Aware Adaptive Retrieval for Production RAG Systems",
+  "export_date": null,
+  "status": "pending_colab_export",
+  "candidate_budgets": [2, 3, 5, 7, 10, 15, 20, 25, 30],
+  "hyperparameters": {
+    "n_estimators": 100,
+    "max_depth": 10,
+    "random_state": 42
+  },
+  "training_dataset": "Natural Questions (NQ)",
+  "temperature": 1.0,
+  "artifact_files": {
+    "model_file": "artifacts/models/random_forest/sage_rf.joblib",
+    "feature_schema": "artifacts/metadata/feature_schema.json"
+  },
+  "notes": "Generated in Google Colab. Train and export using the SAGE Colab Notebook."
+}
+

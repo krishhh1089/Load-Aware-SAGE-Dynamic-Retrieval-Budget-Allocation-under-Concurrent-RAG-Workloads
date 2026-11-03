@@ -1,4 +1,4 @@
-# SAGE: SLO-Aware Adaptive Retrieval for Production RAG Systems
+# SAGE: SLO-Load-Aware Adaptive Retrieval for Production RAG Systems
 ## Phase 1 — Original SAGE Runtime System
 
 This repository implements the **local runtime system** for **SAGE (SLO-Aware Adaptive Retrieval for Production RAG Systems)**, based on the research paper by Muhammad Faizan Raza, Shuo (Luna) Yang, and Satish Mahadevan Srinivasan (Penn State, CoDIT 2026).
